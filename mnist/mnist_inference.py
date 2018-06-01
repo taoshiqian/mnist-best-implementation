@@ -13,7 +13,7 @@ LAYER1_NODE = 500
 # 创建神经网络连接参数，并将他们的正则化项加入loss
 def get_weight_variable(shape, regularizer):
     weights = tf.get_variable(
-        'weights', shape=shape,
+        "weights", shape=shape,
         initializer=tf.truncated_normal_initializer(stddev=0.1)
     )
     # loss中加入正则化项
@@ -35,12 +35,6 @@ def inference(input_tensor, regularizer):
     with tf.variable_scope('layer2'):
         weights = get_weight_variable([LAYER1_NODE, OUTPUT_NODE], regularizer)
         biases = tf.get_variable("biases", [OUTPUT_NODE], initializer=tf.constant_initializer(0.0))
-        layer2 = tf.nn.relu(tf.matmul(layer1, weights) + biases)
+        layer2 = tf.matmul(layer1, weights) + biases
 
     return layer2
-
-if __name__ == '__main__':
-    from numpy.random import RandomState
-    rdm = RandomState(1)
-    X = rdm.rand(5,784)
-    print(inference(X,None))
