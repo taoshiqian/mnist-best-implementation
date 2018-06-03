@@ -44,7 +44,8 @@ def evaluate(mnist):
                     global_step = ckpt.model_checkpoint_path.split('/')[-1].split('-')[-1]
 
                     accuracy_score = sess.run(accuracy, feed_dict=validate_feed)
-                    print("After %s training step(s), validation accuracy = %g" % (global_step, accuracy_score))
+                    print(
+                        "After %s training step(s), validation accuracy = %g %%" % (global_step, accuracy_score * 100))
                 else:
                     print('No checkpoint file ')
                     return
