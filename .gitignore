@@ -1,6 +1,6 @@
 .idea
-mnist/mnist_data
-mnist/model
+mnist/mnist_data/*
+mnist/model/*
 
 # Created by https://www.gitignore.io/api/pycharm,visualstudiocode
 
