@@ -1,4 +1,4 @@
-# coding:
+# -*-coding:utf-8-*-
 import time
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
