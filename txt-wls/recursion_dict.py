@@ -1,12 +1,12 @@
 # -*- coding:utf-8 -*-
 # 递归实现多重for循环的函数
 def fn(_dict, depth):
-    if depth == 1:
-        for k, v in _dict.items():
+    for k, v in _dict.items():
+        if depth == 1:
             yield k, v
-    else:
-        for k, v in _dict.items():
+        else:
             yield from ((k, *q) for q in fn(v, depth - 1))
+
 
 # 双重dict
 _dict = {
@@ -24,7 +24,6 @@ for k, v, x in fn(_dict, 2):
     print(k, v, x)
 print()
 print()
-
 
 # 三重dict
 _dict = {
